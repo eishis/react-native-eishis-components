@@ -1,7 +1,7 @@
 // NOTE: sample
 // import config from './config'
 
-// export * from './Buttons'
+export * from './atoms/Buttons'
 // export * from './Row'
 // export * from './Base'
 // export * from './Text'
