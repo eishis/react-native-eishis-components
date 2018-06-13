@@ -12,11 +12,12 @@ const Button = (props) => {
   //   style,
   //   onPress,
   // } = props;
+  const { children } = props;
   return (
     <TouchableOpacity
       style={styles.button}
     >
-      <Text style={styles.text}>テスト</Text>
+      <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>
   );
 };
