@@ -3,24 +3,34 @@ import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { Colors } from '../../../styles';
 
 const Button = (props) => {
-  const buttonType = props.type || 'blue';
-  const { buttonStyle, textStyle } = styles;
-  const buttonColor = buttonColors[buttonType];
   const {
     onPress,
     children,
     style,
     type,
     disabled,
+    isOutline,
   } = props;
+
+  const buttonType = props.type || 'blue';
+  const { buttonBaseStyle, textStyle, outlineButtonStyle } = styles;
+
+  // 色
+  const selectedButtonColor = disabled ? buttonColors[buttonType].disabled : buttonColors[buttonType].button;
 
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[buttonStyle, { backgroundColor: disabled ? buttonColor.disabled : buttonColor.button }, style]}
+      style={[
+        buttonBaseStyle,
+        (isOutline && outlineButtonStyle),
+        { borderColor: (isOutline && selectedButtonColor) },
+        { backgroundColor: (isOutline ? Colors.white : selectedButtonColor) },
+        style,
+      ]}
       disabled={disabled}
     >
-      <Text style={[textStyle, { color: buttonColor.text }]} >{children}</Text>
+      <Text style={[textStyle, { color: (isOutline ? selectedButtonColor : Colors.white) }]} >{children}</Text>
     </TouchableOpacity>
   ); 
 };
@@ -29,31 +39,27 @@ const buttonColors = {
   blue: {
     button: Colors.blue,
     disabled: `${Colors.blue}50`,
-    text: Colors.white,
   },
   yellow: {
     button: Colors.yellow,
     disabled: `${Colors.yellow}50`,
-    text: Colors.white,
   },
   gray: {
     button: Colors.gray,
     disabled: `${Colors.gray}50`,
-    text: Colors.black,
   },
   red: {
     button: Colors.red,
     disabled: `${Colors.red}50`,
-    text: Colors.white,
   },
 };
 
 const styles = StyleSheet.create({
-  buttonStyle: {
+  buttonBaseStyle: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    padding: 12,
+    padding: 10,
     width: 240,
     height: 40,
     borderRadius: 80,
@@ -62,6 +68,9 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'center',
     fontFamily: "HiraKakuProN-W6",
+  },
+  outlineButtonStyle: {
+    borderWidth: 2,
   },
 });
 
