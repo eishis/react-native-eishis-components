@@ -1,17 +1,20 @@
 # react-native-eishis-components
-EishisのReact Nativeコンポーネント集です。
+React Native components for Atomic Design made by [eishis, Inc.](https://eishis.com/)
 
 # Getting Started
+```
+$ yarn add react-native-eishis-components
+```
 
 # Components
 ## Atom
-### Inputs
-
-### Rows
-
 ### Buttons
 
 ### Texts
+
+### Inputs
+
+### Rows
 
 ...and so on
 
@@ -21,10 +24,10 @@ EishisのReact Nativeコンポーネント集です。
 
 # Usage
 
-# Example
+# Show Examples
 ```
-$ git clone git@github.com:eishis/react-native-eishis-components-example.git
-$ cd react-native-eishis-components-example && yarn install
-$ react-native run-ios
-$ react-native run-android
+$ git clone git@github.com:eishis/react-native-eishis-components.git
+$ cd react-native-eishis-components/packages/react-native-eishis-components-example
+$ yarn install
+$ react-native (run-ios|run-android)
 ```
