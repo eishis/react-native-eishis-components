@@ -12,19 +12,21 @@ import {
   View
 } from 'react-native';
 import { Button } from 'react-native-eishis-components';
+import { Checkbox } from 'react-native-eishis-components';
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
+        <Checkbox checkText="checkbox test" />
         <Button style={{ marginBottom: 6 }}>test</Button>
-        <Button isOutline style={{ marginBottom: 6 }}>test</Button>
         <Button type="yellow" style={{ marginBottom: 6 }}>test</Button>
-        <Button type="yellow" isOutline style={{ marginBottom: 6 }}>test</Button>
         <Button type="gray" style={{ marginBottom: 6 }}>test</Button>
-        <Button type="gray" isOutline style={{ marginBottom: 6 }}>test</Button>
         <Button type="red" style={{ marginBottom: 6 }}>test</Button>
+        <Button isOutline style={{ marginBottom: 6 }}>test</Button>
+        <Button type="yellow" isOutline style={{ marginBottom: 6 }}>test</Button>
+        <Button type="gray" isOutline style={{ marginBottom: 6 }}>test</Button>
         <Button type="red" isOutline>test</Button>
       </View>
     );

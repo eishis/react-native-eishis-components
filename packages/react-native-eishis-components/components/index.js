@@ -2,6 +2,7 @@
 // import config from './config'
 
 export * from './atoms/Buttons'
+export * from './atoms/Checkboxes'
 // export * from './Row'
 // export * from './Base'
 // export * from './Text'
