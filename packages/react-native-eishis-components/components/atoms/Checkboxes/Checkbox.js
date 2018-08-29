@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, StyleSheet, Text, Image, View } from 'react-native';
+import { TouchableWithoutFeedback, StyleSheet, Text, Image, View } from 'react-native';
 import { Colors } from '../../../styles';
 
 export default class Checkbox extends Component {
@@ -34,20 +34,21 @@ export default class Checkbox extends Component {
     } = styles;
 
     return (
-      <TouchableOpacity
+      <TouchableWithoutFeedback
         onPress={() => this.onClick()}
         style={container}
       >
         {this.state.isChecked &&
-          <Image source={require('../../../images/icon-check-on.png')} style={checkIcon} />
+          <Image source={require('../../../images/check_on.png')} style={checkIcon} />
         }
         {!this.state.isChecked &&
-          <View style={checkOffIcon} />
+          <Image source={require('../../../images/check_off.png')} style={checkIcon} />
         }
-        {this.render}
+        
+        {/* {this.render} */}
         {this.renderLeftItem()}
         {/* {this.renderCenterItem()} */}
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     ); 
   }
 };
