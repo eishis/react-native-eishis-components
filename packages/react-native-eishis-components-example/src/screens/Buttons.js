@@ -3,7 +3,6 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -12,14 +11,12 @@ import {
   View
 } from 'react-native';
 import { Button } from 'react-native-eishis-components';
-import { Checkbox } from 'react-native-eishis-components';
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Checkbox checkText="checkbox test" />
         <Button style={{ marginBottom: 6 }}>test</Button>
         <Button type="yellow" style={{ marginBottom: 6 }}>test</Button>
         <Button type="gray" style={{ marginBottom: 6 }}>test</Button>
