@@ -1,9 +1,2 @@
-# OSX
-#
-.DS_Store
-
-# node.js
-#
-node_modules/
-npm-debug.log
+node_modules
 yarn-error.log
