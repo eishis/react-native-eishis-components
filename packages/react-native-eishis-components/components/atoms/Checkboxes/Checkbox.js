@@ -48,11 +48,12 @@ export default class Checkbox extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    width: '80%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    margin: 16,
   },
   checkIcon: {
     width: 24,
