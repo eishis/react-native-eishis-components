@@ -10,12 +10,11 @@ Expo version of example.
 
 # Development
 ## Linking packages
-In default, you may need to run `yarn install` everytime edited components.
-Using `yarn link` as below is recommended.
+
+Please run
 
 ```
-$ cd packages/react-native-eishis-components
-$ yarn link
-$ cd ../react-native-eishis-components-example(expo)
-$ yarn link react-native-eishis-components
+$ yarn lerna bootstrap
 ```
+
+in root directory to compose symlinks in node_modules in example apps.
