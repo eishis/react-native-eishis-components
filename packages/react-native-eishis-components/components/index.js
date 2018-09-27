@@ -1,4 +1,3 @@
-// NOTE: sample
 // import config from './config'
 
 export * from './atoms/Buttons'
