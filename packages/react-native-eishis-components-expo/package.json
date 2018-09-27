@@ -1,7 +1,7 @@
 {
   "name": "react-native-eishis-components-expo",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.1.0",
   "devDependencies": {
     "jest-expo": "~27.0.0",
     "react-native-scripts": "1.14.0",
@@ -22,8 +22,8 @@
   "dependencies": {
     "expo": "^27.0.1",
     "react": "16.3.1",
-    "react-native": "~0.55.2",
-    "react-native-eishis-components": "../react-native-eishis-components",
+    "react-native": "0.55.3",
+    "react-native-eishis-components": "^0.1.2",
     "react-navigation": "^2.2.0"
   }
 }
