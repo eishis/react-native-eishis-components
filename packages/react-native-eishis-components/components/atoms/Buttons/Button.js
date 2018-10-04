@@ -67,7 +67,6 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 15,
     textAlign: 'center',
-    fontFamily: "HiraKakuProN-W6",
   },
   outlineButtonStyle: {
     borderWidth: 2,
