@@ -1,21 +1,24 @@
 {
   "name": "react-native-eishis-components",
   "version": "0.1.2",
-  "description": "",
-  "main": "components/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "React Native components for Atomic Design made by eishis, Inc.",
+  "keywords": [
+    "react-native"
+  ],
+  "author": "eishis, Inc.",
+  "license": "MIT",
+  "homepage": "https://github.com/eishis/react-native-eishis-components",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eishis/react-native-eishis-components.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/eishis/react-native-eishis-components/issues"
   },
-  "homepage": "https://github.com/eishis/react-native-eishis-components#readme",
+  "main": "components/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
