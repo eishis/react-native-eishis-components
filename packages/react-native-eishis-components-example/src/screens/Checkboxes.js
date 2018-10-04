@@ -5,17 +5,13 @@ import {
   View
 } from 'react-native';
 import { Checkbox } from 'react-native-eishis-components';
+import withMenuButton from '../utils/withMenuButton';
 
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Checkbox checkText="checkbox test" />
-      </View>
-    );
-  }
-}
+const CheckboxesScreen = () => (
+  <View style={styles.container}>
+    <Checkbox checkText="checkbox test" />
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -23,15 +19,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
+
+export default withMenuButton('Checkbox', CheckboxesScreen);

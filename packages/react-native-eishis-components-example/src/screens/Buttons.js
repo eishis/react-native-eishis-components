@@ -1,8 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+// @flow
 import React, { Component } from 'react';
 import {
   Platform,
@@ -11,24 +7,20 @@ import {
   View
 } from 'react-native';
 import { Button } from 'react-native-eishis-components';
+import withMenuButton from '../utils/withMenuButton';
 
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Button style={{ marginBottom: 6 }}>test</Button>
-        <Button type="yellow" style={{ marginBottom: 6 }}>test</Button>
-        <Button type="gray" style={{ marginBottom: 6 }}>test</Button>
-        <Button type="red" style={{ marginBottom: 6 }}>test</Button>
-        <Button isOutline style={{ marginBottom: 6 }}>test</Button>
-        <Button type="yellow" isOutline style={{ marginBottom: 6 }}>test</Button>
-        <Button type="gray" isOutline style={{ marginBottom: 6 }}>test</Button>
-        <Button type="red" isOutline>test</Button>
-      </View>
-    );
-  }
-}
+const ButtonsScreen = () => (
+  <View style={styles.container}>
+    <Button style={{ marginBottom: 6 }}>test</Button>
+    <Button type="yellow" style={{ marginBottom: 6 }}>test</Button>
+    <Button type="gray" style={{ marginBottom: 6 }}>test</Button>
+    <Button type="red" style={{ marginBottom: 6 }}>test</Button>
+    <Button isOutline style={{ marginBottom: 6 }}>test</Button>
+    <Button type="yellow" isOutline style={{ marginBottom: 6 }}>test</Button>
+    <Button type="gray" isOutline style={{ marginBottom: 6 }}>test</Button>
+    <Button type="red" isOutline>test</Button>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -48,3 +40,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+export default withMenuButton('Button', ButtonsScreen);
