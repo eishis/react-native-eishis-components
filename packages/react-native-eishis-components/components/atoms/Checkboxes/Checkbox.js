@@ -36,6 +36,8 @@ export default class Checkbox extends Component {
       path2,
     } = styles;
 
+    const checkImage = this.state.isChecked ? require('../../../images/check_on.png') : require('../../../images/check_off.png');
+
     return (
       <TouchableOpacity
         onPress={() => this.onClick()}
@@ -52,9 +54,7 @@ export default class Checkbox extends Component {
         {!this.state.isChecked &&
           <View style={checkOffIcon}></View>
         }
-        {this.render}
         {this.renderLeftItem()}
-        {/* {this.renderCenterItem()} */}
       </TouchableOpacity>
     ); 
   }
