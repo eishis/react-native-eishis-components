@@ -30,30 +30,24 @@ export default class Checkbox extends Component {
     const {
       container,
       checkIcon,
-      checkOffIcon, 
       iconInner,
       path1,
       path2,
     } = styles;
-
-    const checkImage = this.state.isChecked ? require('../../../images/check_on.png') : require('../../../images/check_off.png');
 
     return (
       <TouchableOpacity
         onPress={() => this.onClick()}
         style={container}
       >
-        {this.state.isChecked &&
-          <View style={checkIcon}>
+        <View style={checkIcon}>
+          {this.state.isChecked && 
             <View style={iconInner}>
               <View style={path1} />
               <View style={path2} />
             </View>
-          </View>
-        }
-        {!this.state.isChecked &&
-          <View style={checkOffIcon}></View>
-        }
+          }
+        </View>
         {this.renderLeftItem()}
       </TouchableOpacity>
     ); 
@@ -76,8 +70,7 @@ const styles = StyleSheet.create({
     marginRight: 16,
     borderRadius: 25,
     borderWidth: 2,
-    borderColor: '#f00',
-    backgroundColor: '#f00',
+    borderColor: '#666',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -100,7 +93,7 @@ const styles = StyleSheet.create({
   path1: {
     width: 3,
     height: 8,
-    backgroundColor: '#fff',
+    backgroundColor: '#666',
     position: 'absolute',
     top: 0,
     left: 0
@@ -108,7 +101,7 @@ const styles = StyleSheet.create({
   path2: {
     width: 12,
     height: 3,
-    backgroundColor: '#fff',
+    backgroundColor: '#666',
     position: 'absolute',
     bottom: 0,
     left: 0,
