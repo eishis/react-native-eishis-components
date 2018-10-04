@@ -30,23 +30,17 @@ export default class Checkbox extends Component {
     const {
       container,
       checkIcon,
-      checkOffIcon, 
     } = styles;
+
+    const checkImage = this.state.isChecked ? require('../../../images/check_on.png') : require('../../../images/check_off.png');
 
     return (
       <TouchableOpacity
         onPress={() => this.onClick()}
         style={container}
       >
-        {this.state.isChecked &&
-          <Image source={require('../../../images/icon-check-on.png')} style={checkIcon} />
-        }
-        {!this.state.isChecked &&
-          <View style={checkOffIcon} />
-        }
-        {this.render}
+        <Image source={checkImage} style={checkIcon} />
         {this.renderLeftItem()}
-        {/* {this.renderCenterItem()} */}
       </TouchableOpacity>
     ); 
   }
@@ -54,23 +48,16 @@ export default class Checkbox extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    width: '80%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    margin: 16,
   },
   checkIcon: {
     width: 24,
     height: 24,
-    marginRight: 10,
-  },
-  checkOffIcon: {
-    width: 24,
-    height: 24,
-    borderRadius: 25,
-    borderWidth: 2,
-    borderColor: '#666',
     marginRight: 10,
   }
 });
