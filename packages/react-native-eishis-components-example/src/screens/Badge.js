@@ -1,15 +1,18 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import {
   StyleSheet,
-  View
+  View,
+  Text,
 } from 'react-native';
-import { Checkbox } from 'react-native-eishis-components';
+import { Badge } from 'react-native-eishis-components';
 import withMenuButton from '../utils/withMenuButton';
 
-const CheckboxesScreen = () => (
+const BadgeScreen = () => (
   <View style={styles.container}>
-    <Checkbox checkText="checkbox test" />
+    <Badge colorType="red" sizeType="small">	
+      <Text>badge</Text>	
+    </Badge>
   </View>
 );
 
@@ -22,4 +25,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withMenuButton('Checkbox', CheckboxesScreen);
+export default withMenuButton('Badge', BadgeScreen);

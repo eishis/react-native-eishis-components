@@ -9,7 +9,7 @@ import {
 import { Button } from 'react-native-eishis-components';
 import withMenuButton from '../utils/withMenuButton';
 
-const ButtonsScreen = () => (
+const ButtonScreen = () => (
   <View style={styles.container}>
     <Button style={{ marginBottom: 6 }}>test</Button>
     <Button type="yellow" style={{ marginBottom: 6 }}>test</Button>
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withMenuButton('Button', ButtonsScreen);
+export default withMenuButton('Button', ButtonScreen);

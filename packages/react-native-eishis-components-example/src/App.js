@@ -1,10 +1,12 @@
 import { createDrawerNavigator } from 'react-navigation';
-import ButtonsScreen from './screens/Buttons';
-import CheckboxesScreen from './screens/Checkboxes';
+import ButtonScreen from './screens/Button';
+import CheckboxScreen from './screens/Checkbox';
+import BadgeScreen from './screens/Badge';
 
 const AppNavigator = createDrawerNavigator({
-  Button: { screen: ButtonsScreen },
-  Checkbox: { screen: CheckboxesScreen },
+  Button: { screen: ButtonScreen },
+  Checkbox: { screen: CheckboxScreen },
+  Badge: { screen: BadgeScreen },
 })
 
 export default AppNavigator;
