@@ -16,7 +16,6 @@
     "url": "https://github.com/eishis/react-native-eishis-components/issues"
   },
   "homepage": "https://github.com/eishis/react-native-eishis-components#readme",
-  "devDependencies": {},
   "peerDependencies": {
     "react": "*",
     "react-native": "*"

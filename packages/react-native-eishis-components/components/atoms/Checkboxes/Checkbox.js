@@ -1,8 +1,7 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import { TouchableOpacity, StyleSheet, Text, Image, View } from 'react-native';
-import { Colors } from '../../../styles';
 
-export default class Checkbox extends React.Component {
+export default class Checkbox extends Component {
   state = {
     isChecked: this.props.isChecked,
   }
