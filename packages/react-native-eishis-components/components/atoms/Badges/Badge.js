@@ -36,7 +36,7 @@ const badgeColors = {
     backgroundColor: Colors.yellow,
   },
   gray: {
-    butbackgroundColorton: Colors.gray,
+    backgroundColor: Colors.gray,
   },
   red: {
     backgroundColor: Colors.red,
