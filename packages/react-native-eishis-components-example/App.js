@@ -13,12 +13,16 @@ import {
 } from 'react-native';
 import { Button } from 'react-native-eishis-components';
 import { Checkbox } from 'react-native-eishis-components';
+import { Badge } from 'react-native-eishis-components';
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
+        <Badge colorType="red" sizeType="small">
+          <Text>badge</Text>
+        </Badge>
         <Checkbox checkText="checkbox test" />
         <Button style={{ marginBottom: 6 }}>test</Button>
         <Button type="yellow" style={{ marginBottom: 6 }}>test</Button>
