@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, StyleSheet, Text, Image, View } from 'react-native';
-import { Colors } from '../../../styles';
 
 export default class Checkbox extends Component {
   state = {
