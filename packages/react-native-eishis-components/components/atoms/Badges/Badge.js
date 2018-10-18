@@ -1,29 +1,28 @@
-// @flow
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../../../styles';
-
-type Props = {
-  colorType?: 'blue' | 'yellow' | 'gray' | 'red',
-  sizeType?: 'small' | 'medium',
-}
 
 const Badge = (props: Props) => {
   const {
     colorType,
     sizeType,
+    badgeText,
     style,
+    children,
   } = props;
 
   return (
-    <View style={styles.containerStyle}>
+    <View>
+      {children}
       <View style={[
         styles.badgeStyle,
-        badgeColors[colorType] || badgeColors['blue'],
-        badgeSizes[sizeType] || badgeSizes['medium'],
+        (badgeText !== '' && { paddingHorizontal: 6 }),
+        badgeColors[colorType || 'blue'],
+        badgeSizes[sizeType || 'medium'],
         style
-      ]}></View>
-      {props.children}
+      ]}>
+        <Text style={styles.countTextStyle}>{badgeText}</Text>
+      </View>
     </View>
   ); 
 };
@@ -45,15 +44,15 @@ const badgeColors = {
 
 const badgeSizes = {
   small: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
+    minWidth: 14,
+    minHeight: 14,
+    borderRadius: 7,
     top: 0,
     right: -2,
   },
   medium: {
-    width: 20,
-    height: 20,
+    minWidth: 20,
+    minHeight: 20,
     borderRadius: 10,
     top: -6,
     right: -8,
@@ -66,7 +65,13 @@ const styles = StyleSheet.create({
   },
   badgeStyle: {
     position: 'absolute',
-  }
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  countTextStyle: {
+    color: '#ffffff',
+  },
 });
 
 export default Badge;
