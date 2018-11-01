@@ -9,7 +9,9 @@ import withMenuButton from '../utils/withMenuButton';
 
 const InputScreen = () => (
   <View style={styles.container}>
-    <Input />
+    <Input label="Input Label 1" />
+    <Input label="Input Label 2" />
+    <Input label="Input Label 3" />
   </View>
 );
 
