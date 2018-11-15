@@ -1,5 +1,10 @@
-import React, { Component } from 'react';
-import { TouchableOpacity, StyleSheet, Text, Image, View, TextInput } from 'react-native';
+import React from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+} from 'react-native';
 
 const styles = StyleSheet.create({
   inner: {
@@ -16,24 +21,21 @@ const styles = StyleSheet.create({
   }
 });
 
-class Input extends Component {
+const Input = (props) => {
+  const {
+    label,
+    ...rest
+  } = props;
 
-  render(){
-
-    const {
-      inner,
-      label,
-      input,
-    } = styles;
-
-    return(
-      <View style={inner}>
-        <Text style={label}>{this.props.label}</Text>
-        <TextInput style={input}></TextInput>
-      </View>
-    );
-  }
-
+  return (
+    <View style={styles.inner}>
+      <Text style={styles.label}>{label}</Text>
+      <TextInput
+        style={styles.input}
+        {...rest}
+      />
+    </View>
+  );
 }
 
 export default Input;
