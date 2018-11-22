@@ -1,5 +1,5 @@
-// @flow
-import React, { Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import {
   View,
   Text,
@@ -7,17 +7,17 @@ import {
   StyleSheet
 } from 'react-native';
 
-type Props = {
-  label?: string,
-  checked?: boolean,
-  onChange?: (checked: boolean) => void,
+interface Props {
+  label?: string
+  checked?: boolean
+  onChange?: (checked: boolean) => void
 };
 
-type State = {
-  checked: boolean,
+interface State {
+  checked: boolean
 };
 
-export default class Checkbox extends Component<Props, State> {
+export default class Checkbox extends Component<Props, State>  {
   state = {
     checked: false,
   }

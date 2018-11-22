@@ -6,22 +6,11 @@ import {
   StyleSheet,
 } from 'react-native';
 
-const styles = StyleSheet.create({
-  inner: {
-    width: '100%',
-    padding: 16,
-  },
-  label: {
-    paddingBottom: 8,
-  },
-  input: {
-    padding: 8,
-    borderRadius: 4,
-    backgroundColor: '#eeeeee',
-  }
-});
+interface Props {
+  label: string
+}
 
-const Input = (props) => {
+const Input: React.SFC<Props> = (props) => {
   const {
     label,
     ...rest
@@ -37,5 +26,20 @@ const Input = (props) => {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  inner: {
+    width: '100%',
+    padding: 16,
+  },
+  label: {
+    paddingBottom: 8,
+  },
+  input: {
+    padding: 8,
+    borderRadius: 4,
+    backgroundColor: '#eeeeee',
+  }
+});
 
 export default Input;

@@ -1,26 +1,26 @@
-// @flow
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Colors } from '../../../styles';
 
-type Props = {
-  colorType?: 'blue' | 'yellow' | 'gray' | 'red',
-  sizeType?: 'small' | 'medium',
+interface Props {
+  colorType?: 'blue' | 'yellow' | 'gray' | 'red'
+  sizeType?: 'small' | 'medium'
+  style?: any
 }
 
-const Badge = (props: Props) => {
+const Badge: React.SFC<Props> = (props) => {
   const {
-    colorType,
-    sizeType,
+    colorType = 'blue',
+    sizeType = 'medium',
     style,
   } = props;
 
   return (
-    <View style={styles.containerStyle}>
+    <View>
       <View style={[
         styles.badgeStyle,
-        badgeColors[colorType] || badgeColors['blue'],
-        badgeSizes[sizeType] || badgeSizes['medium'],
+        badgeColors[colorType],
+        badgeSizes[sizeType],
         style
       ]}></View>
       {props.children}

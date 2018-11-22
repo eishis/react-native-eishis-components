@@ -15,12 +15,19 @@
   "bugs": {
     "url": "https://github.com/eishis/react-native-eishis-components/issues"
   },
-  "main": "components/index.js",
+  "main": "dist/components/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "watch": "tsc -w"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
+  },
+  "devDependencies": {
+    "@types/react": "^16.7.7",
+    "@types/react-native": "^0.57.13",
+    "typescript": "^3.1.6"
   }
 }
