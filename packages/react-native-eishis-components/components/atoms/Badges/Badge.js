@@ -16,13 +16,15 @@ const Badge = (props: Props) => {
       {children}
       <View style={[
         styles.badgeStyle,
-        (badgeText !== '' && { paddingHorizontal: 6 }),
+        (!!badgeText && { paddingHorizontal: 6 }),
         badgeColors[colorType || 'blue'],
         badgeSizes[sizeType || 'medium'],
         style
       ]}>
-        <Text style={styles.countTextStyle}>{badgeText}</Text>
-      </View>
+        {!!badgeText &&
+          <Text style={styles.countTextStyle}>{badgeText}</Text>
+        }
+        </View>
     </View>
   ); 
 };
@@ -44,9 +46,9 @@ const badgeColors = {
 
 const badgeSizes = {
   small: {
-    minWidth: 14,
-    minHeight: 14,
-    borderRadius: 7,
+    minWidth: 10,
+    minHeight: 10,
+    borderRadius: 5,
     top: 0,
     right: -2,
   },
