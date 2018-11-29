@@ -18,8 +18,8 @@
   "main": "dist/components/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "watch": "tsc -w"
+    "build": "rimraf dist && tsc",
+    "watch": "rimraf dist && tsc -w"
   },
   "peerDependencies": {
     "react": "*",
@@ -28,6 +28,7 @@
   "devDependencies": {
     "@types/react": "^16.7.7",
     "@types/react-native": "^0.57.13",
+    "rimraf": "^2.6.2",
     "typescript": "^3.1.6"
   }
 }

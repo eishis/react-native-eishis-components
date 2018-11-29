@@ -1,31 +1,29 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Colors } from '../../../styles';
+import { Colors } from '../../styles';
 
 interface Props {
-  colorType?: 'blue' | 'yellow' | 'gray' | 'red'
-  sizeType?: 'small' | 'medium'
-  style?: any
+  colorType?: 'blue' | 'yellow' | 'gray' | 'red';
+  sizeType?: 'small' | 'medium';
+  style?: any;
 }
 
-const Badge: React.SFC<Props> = (props) => {
-  const {
-    colorType = 'blue',
-    sizeType = 'medium',
-    style,
-  } = props;
+const Badge: React.SFC<Props> = props => {
+  const { colorType = 'blue', sizeType = 'medium', style } = props;
 
   return (
     <View>
-      <View style={[
-        styles.badgeStyle,
-        badgeColors[colorType],
-        badgeSizes[sizeType],
-        style
-      ]}></View>
+      <View
+        style={[
+          styles.badgeStyle,
+          badgeColors[colorType],
+          badgeSizes[sizeType],
+          style,
+        ]}
+      />
       {props.children}
     </View>
-  ); 
+  );
 };
 
 const badgeColors = {
@@ -41,7 +39,7 @@ const badgeColors = {
   red: {
     backgroundColor: Colors.red,
   },
-}
+};
 
 const badgeSizes = {
   small: {
@@ -58,7 +56,7 @@ const badgeSizes = {
     top: -6,
     right: -8,
   },
-}
+};
 
 const styles = StyleSheet.create({
   buttonBaseStyle: {
@@ -66,7 +64,7 @@ const styles = StyleSheet.create({
   },
   badgeStyle: {
     position: 'absolute',
-  }
+  },
 });
 
 export default Badge;

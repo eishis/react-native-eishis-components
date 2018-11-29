@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Colors = {
+export const Colors = {
     blue: '#6EC4FF',
     white: '#fff',
     yellow: '#F9BF4B',

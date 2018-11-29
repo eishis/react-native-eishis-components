@@ -1,4 +1,5 @@
-export * from './atoms/Buttons';
-export * from './atoms/Checkboxes';
-export * from './atoms/Badges';
-export * from './atoms/Inputs';
+import Button from './atoms/Button';
+import Checkbox from './atoms/Checkbox';
+import Badge from './atoms/Badge';
+import Input from './atoms/Input';
+export { Button, Checkbox, Badge, Input };

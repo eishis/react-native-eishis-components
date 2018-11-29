@@ -1,21 +1,15 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importDefault(require("react"));
-const react_2 = require("react");
-const react_native_1 = require("react-native");
-;
-;
-class Checkbox extends react_2.Component {
+import React, { Component } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+export default class Checkbox extends Component {
     constructor() {
         super(...arguments);
         this.state = {
             checked: false,
         };
         this.onClick = () => {
-            const current = (typeof this.props.checked !== 'undefined') ? this.props.checked : this.state.checked;
+            const current = typeof this.props.checked !== 'undefined'
+                ? this.props.checked
+                : this.state.checked;
             const checked = !current;
             this.setState({ checked });
             if (this.props.onChange) {
@@ -24,23 +18,22 @@ class Checkbox extends react_2.Component {
         };
     }
     render() {
-        const checked = (typeof this.props.checked !== 'undefined') ? this.props.checked : this.state.checked;
-        const { container, checkIcon, iconInner, path1, path2, } = styles;
-        return (<react_native_1.TouchableOpacity onPress={() => this.onClick()} style={container}>
-        <react_native_1.View style={checkIcon}>
-          {checked &&
-            <react_native_1.View style={iconInner}>
-              <react_native_1.View style={path1}/>
-              <react_native_1.View style={path2}/>
-            </react_native_1.View>}
-        </react_native_1.View>
-        {!!this.props.label &&
-            <react_native_1.Text>{this.props.label}</react_native_1.Text>}
-      </react_native_1.TouchableOpacity>);
+        const checked = typeof this.props.checked !== 'undefined'
+            ? this.props.checked
+            : this.state.checked;
+        const { container, checkIcon, iconInner, path1, path2 } = styles;
+        return (<TouchableOpacity onPress={() => this.onClick()} style={container}>
+        <View style={checkIcon}>
+          {checked && (<View style={iconInner}>
+              <View style={path1}/>
+              <View style={path2}/>
+            </View>)}
+        </View>
+        {!!this.props.label && <Text>{this.props.label}</Text>}
+      </TouchableOpacity>);
     }
 }
-exports.default = Checkbox;
-const styles = react_native_1.StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         width: '80%',
         display: 'flex',
@@ -82,7 +75,7 @@ const styles = react_native_1.StyleSheet.create({
         backgroundColor: '#666',
         position: 'absolute',
         top: 0,
-        left: 0
+        left: 0,
     },
     path2: {
         width: 12,
@@ -91,5 +84,5 @@ const styles = react_native_1.StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         left: 0,
-    }
+    },
 });

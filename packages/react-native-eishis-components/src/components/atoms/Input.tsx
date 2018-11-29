@@ -1,31 +1,20 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-} from 'react-native';
+import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 interface Props {
-  label: string
+  label: string;
 }
 
-const Input: React.SFC<Props> = (props) => {
-  const {
-    label,
-    ...rest
-  } = props;
+const Input: React.SFC<Props> = props => {
+  const { label, ...rest } = props;
 
   return (
     <View style={styles.inner}>
       <Text style={styles.label}>{label}</Text>
-      <TextInput
-        style={styles.input}
-        {...rest}
-      />
+      <TextInput style={styles.input} {...rest} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   inner: {
@@ -39,7 +28,7 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 4,
     backgroundColor: '#eeeeee',
-  }
+  },
 });
 
 export default Input;
