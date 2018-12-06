@@ -1,16 +1,19 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { Colors } from '../../styles';
 const Badge = props => {
-    const { colorType = 'blue', sizeType = 'medium', style } = props;
+    const { colorType = 'blue', sizeType = 'medium', badgeText, style, children, } = props;
     return (<View>
+      {children}
       <View style={[
         styles.badgeStyle,
+        !!badgeText && { paddingHorizontal: 6 },
         badgeColors[colorType],
         badgeSizes[sizeType],
         style,
-    ]}/>
-      {props.children}
+    ]}>
+        {!!badgeText && <Text style={styles.countTextStyle}>{badgeText}</Text>}
+      </View>
     </View>);
 };
 const badgeColors = {
@@ -29,15 +32,15 @@ const badgeColors = {
 };
 const badgeSizes = {
     small: {
-        width: 10,
-        height: 10,
+        minWidth: 10,
+        minHeight: 10,
         borderRadius: 5,
         top: 0,
         right: -2,
     },
     medium: {
-        width: 20,
-        height: 20,
+        minWidth: 20,
+        minHeight: 20,
         borderRadius: 10,
         top: -6,
         right: -8,
@@ -49,6 +52,12 @@ const styles = StyleSheet.create({
     },
     badgeStyle: {
         position: 'absolute',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    countTextStyle: {
+        color: '#ffffff',
     },
 });
 export default Badge;
