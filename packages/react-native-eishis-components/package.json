@@ -20,7 +20,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && tsc",
     "watch": "rimraf dist && tsc -w",
-    "prepublish": "build"
+    "prepublish": "npm run build"
   },
   "peerDependencies": {
     "react": "*",
