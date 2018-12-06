@@ -1,57 +1,58 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, StyleSheet, Text, Image, View } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default class Checkbox extends Component {
+interface Props {
+  label?: string;
+  checked?: boolean;
+  onChange?: (checked: boolean) => void;
+}
+
+interface State {
+  checked: boolean;
+}
+
+export default class Checkbox extends Component<Props, State> {
   state = {
-    isChecked: this.props.isChecked,
-  }
+    checked: false,
+  };
 
   onClick = () => {
-    const checkboxState = !this.state.isChecked;
-    this.setState({
-      isChecked: checkboxState
-    });
-  }
+    const current =
+      typeof this.props.checked !== 'undefined'
+        ? this.props.checked
+        : this.state.checked;
+    const checked = !current;
 
-  renderLeftItem = () => {
-    return (
-      <Text>{this.props.checkText}</Text>
-    )
-  }
+    this.setState({ checked });
 
-  renderCenterItem = () => {
-    return (
-      <Text style={{ flex: 1 }}>{this.props.checkText}</Text>
-    )
-  }
+    if (this.props.onChange) {
+      this.props.onChange(checked);
+    }
+  };
 
   render() {
-    const {
-      container,
-      checkIcon,
-      iconInner,
-      path1,
-      path2,
-    } = styles;
+    const checked =
+      typeof this.props.checked !== 'undefined'
+        ? this.props.checked
+        : this.state.checked;
+
+    const { container, checkIcon, iconInner, path1, path2 } = styles;
 
     return (
-      <TouchableOpacity
-        onPress={() => this.onClick()}
-        style={container}
-      >
+      <TouchableOpacity onPress={() => this.onClick()} style={container}>
         <View style={checkIcon}>
-          {this.state.isChecked && 
+          {checked && (
             <View style={iconInner}>
               <View style={path1} />
               <View style={path2} />
             </View>
-          }
+          )}
         </View>
-        {this.renderLeftItem()}
+        {!!this.props.label && <Text>{this.props.label}</Text>}
       </TouchableOpacity>
-    ); 
+    );
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     width: 12,
     height: 8,
     position: 'relative',
-    transform: [{ rotate: '-45deg'}],
+    transform: [{ rotate: '-45deg' }],
     marginTop: -2,
   },
   path1: {
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#666',
     position: 'absolute',
     top: 0,
-    left: 0
+    left: 0,
   },
   path2: {
     width: 12,
@@ -104,5 +105,5 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     left: 0,
-  }
+  },
 });

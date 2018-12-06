@@ -1,11 +1,18 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
-import { Colors } from '../../../styles';
+import { View, Text, StyleSheet } from 'react-native';
+import { Colors } from '../../styles';
 
-const Badge = (props: Props) => {
+interface Props {
+  colorType?: 'blue' | 'yellow' | 'gray' | 'red';
+  sizeType?: 'small' | 'medium';
+  style?: any;
+  badgeText?: string;
+}
+
+const Badge: React.SFC<Props> = props => {
   const {
-    colorType,
-    sizeType,
+    colorType = 'blue',
+    sizeType = 'medium',
     badgeText,
     style,
     children,
@@ -14,19 +21,19 @@ const Badge = (props: Props) => {
   return (
     <View>
       {children}
-      <View style={[
-        styles.badgeStyle,
-        (!!badgeText && { paddingHorizontal: 6 }),
-        badgeColors[colorType || 'blue'],
-        badgeSizes[sizeType || 'medium'],
-        style
-      ]}>
-        {!!badgeText &&
-          <Text style={styles.countTextStyle}>{badgeText}</Text>
-        }
-        </View>
+      <View
+        style={[
+          styles.badgeStyle,
+          !!badgeText && { paddingHorizontal: 6 },
+          badgeColors[colorType],
+          badgeSizes[sizeType],
+          style,
+        ]}
+      >
+        {!!badgeText && <Text style={styles.countTextStyle}>{badgeText}</Text>}
+      </View>
     </View>
-  ); 
+  );
 };
 
 const badgeColors = {
@@ -42,7 +49,7 @@ const badgeColors = {
   red: {
     backgroundColor: Colors.red,
   },
-}
+};
 
 const badgeSizes = {
   small: {
@@ -59,7 +66,7 @@ const badgeSizes = {
     top: -6,
     right: -8,
   },
-}
+};
 
 const styles = StyleSheet.create({
   buttonBaseStyle: {
