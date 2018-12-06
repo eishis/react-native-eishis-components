@@ -1,41 +1,65 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text } from 'react-native';
-import { Colors } from '../../../styles';
+import { Colors } from '../../styles';
 
-const Button = (props) => {
+interface Props {
+  onPress?: () => void;
+  style?: any;
+  type?: 'blue' | 'yellow' | 'green' | 'red';
+  disabled?: boolean;
+  isOutline?: boolean;
+}
+
+const Button: React.SFC<Props> = props => {
   const {
     onPress,
     children,
     style,
-    type,
+    type = 'blue',
     disabled,
     isOutline,
   } = props;
 
-  const buttonType = props.type || 'blue';
   const { buttonBaseStyle, textStyle, outlineButtonStyle } = styles;
 
   // 色
-  const selectedButtonColor = disabled ? buttonColors[buttonType].disabled : buttonColors[buttonType].button;
+  const buttonColor = buttonColors[type];
+  const selectedButtonColor = disabled
+    ? buttonColor.disabled
+    : buttonColor.button;
 
   return (
     <TouchableOpacity
       onPress={onPress}
       style={[
         buttonBaseStyle,
-        (isOutline && outlineButtonStyle),
-        { borderColor: (isOutline && selectedButtonColor) },
-        { backgroundColor: (isOutline ? Colors.white : selectedButtonColor) },
+        isOutline && outlineButtonStyle,
+        { borderColor: isOutline && selectedButtonColor },
+        { backgroundColor: isOutline ? Colors.white : selectedButtonColor },
         style,
       ]}
       disabled={disabled}
     >
-      <Text style={[textStyle, { color: (isOutline ? selectedButtonColor : Colors.white) }]} >{children}</Text>
+      <Text
+        style={[
+          textStyle,
+          { color: isOutline ? selectedButtonColor : Colors.white },
+        ]}
+      >
+        {children}
+      </Text>
     </TouchableOpacity>
-  ); 
+  );
 };
 
-const buttonColors = {
+interface ButtonColors {
+  [key: string]: {
+    button: string;
+    disabled: string;
+  };
+}
+
+const buttonColors: ButtonColors = {
   blue: {
     button: Colors.blue,
     disabled: `${Colors.blue}50`,
